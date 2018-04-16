@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD30603C2084A99200581489 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30603B2084A99200581489 /* HomeScreen.swift */; };
 		BD63D3D020849E3600675C3B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDAAAEA420849DF900362BF1 /* Info.plist */; };
 		BDAAAE732084866900362BF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAAAE722084866900362BF1 /* AppDelegate.swift */; };
 		BDAAAE782084866900362BF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDAAAE762084866900362BF1 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD30603B2084A99200581489 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		BDAAAE6F2084866900362BF1 /* SocialNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDAAAE722084866900362BF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDAAAE772084866900362BF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,7 +44,6 @@
 			isa = PBXGroup;
 			children = (
 				BDAAAE712084866900362BF1 /* SocialNetwork */,
-				BDAAAEA320849DF900362BF1 /* SupportingFile */,
 				BDAAAE702084866900362BF1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +64,7 @@
 				BDAAAE842084929400362BF1 /* View */,
 				BDAAAE9A2084936300362BF1 /* Controller */,
 				BDAAAE85208492D500362BF1 /* Resource */,
+				BDAAAEA320849DF900362BF1 /* SupportingFile */,
 			);
 			path = SocialNetwork;
 			sourceTree = "<group>";
@@ -89,6 +91,7 @@
 			children = (
 				BDAAAE9B2084937100362BF1 /* LogInScreen */,
 				BDAAAEA020849D1F00362BF1 /* RegistrationScreen */,
+				BD30603B2084A99200581489 /* HomeScreen.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -121,8 +124,7 @@
 			children = (
 				BDAAAEA420849DF900362BF1 /* Info.plist */,
 			);
-			name = SupportingFile;
-			path = SocialNetwork/SupportingFile;
+			path = SupportingFile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD30603C2084A99200581489 /* HomeScreen.swift in Sources */,
 				BDAAAE9F20849D1900362BF1 /* RegistrationScreen.swift in Sources */,
 				BDAAAE732084866900362BF1 /* AppDelegate.swift in Sources */,
 				BDAAAE9D20849D0200362BF1 /* LogInScreen.swift in Sources */,

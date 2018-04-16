@@ -15,16 +15,31 @@ class LogInScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboard()
 
     }
 
+    func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent;
+    }
+    //MARK:HideKeyboard
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
     
-    
+    @objc func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
     
     //MARK:IBAction
     @IBAction func logInButtonClickd(_ sender: UIButton) {
     }
-    
     
     @IBAction func registerButtonClickd(_ sender: UIButton) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "RegistrationScreen")

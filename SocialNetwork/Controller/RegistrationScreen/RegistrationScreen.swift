@@ -15,11 +15,29 @@ class RegistrationScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         hideKeyboard()
 
     }
-
     
     
+    func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent;
+    }
+    
+    //MARK:HideKeyboard
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
     
     //MARK:IBAcrion
     @IBAction func registerButtonClickd(_ sender: Any) {
