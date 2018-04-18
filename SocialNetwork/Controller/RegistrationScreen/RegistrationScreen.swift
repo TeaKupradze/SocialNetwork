@@ -13,32 +13,45 @@ class RegistrationScreen: UIViewController {
     @IBOutlet weak var textuserName: UITextField!
     @IBOutlet weak var textPassword: UITextField!
     @IBOutlet weak var statusLbl: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var constraintContentHeight: NSLayoutConstraint!
+    @IBOutlet weak var contentView: UIView!
     
+    var activeField: UITextField?
+    var lastOffset: CGPoint!
+    var keyboardHeight: CGFloat!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         statusLbl.isHidden = true
-        hideKeyboard()
-
+        
+        textuserName.delegate = self
+        textPassword.delegate = self
+        
+        // Observe keyboard change
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+       // Add touch gesture for contentView
+        self.contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(returnTextView(gesture:))))
+        
     }
+    
+    @objc func returnTextView(gesture: UIGestureRecognizer) {
+        guard activeField != nil else {
+            return
+        }
+        
+        activeField?.resignFirstResponder()
+        activeField = nil
+    }
+    
     
     func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.lightContent;
     }
     
-    //MARK:HideKeyboard
-    func hideKeyboard()
-    {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(dismissKeyboard))
-        
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard()
-    {
-        view.endEditing(true)
-    }
     //MARK:SaveData
     func saveData(userName : String , password : String){
         let userName = textuserName.text
@@ -61,5 +74,46 @@ class RegistrationScreen: UIViewController {
     
     @IBAction func backButtonClickd(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+// MARK: UITextFieldDelegate
+extension RegistrationScreen: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        activeField = textField
+        lastOffset = self.scrollView.contentOffset
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        activeField?.resignFirstResponder()
+        activeField = nil
+        return true
+    }
+}
+
+// MARK: Keyboard Handling
+extension RegistrationScreen {
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if keyboardHeight != nil {
+            return
+        }
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            keyboardHeight = keyboardSize.height
+            
+            scrollView.contentSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height + keyboardSize.height)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 100), animated: true)
+        
+    }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.3) {
+            self.constraintContentHeight.constant -= self.keyboardHeight
+
+            self.scrollView.contentOffset = self.lastOffset
+        }
+
+        keyboardHeight = nil
     }
 }

@@ -21,9 +21,9 @@ class LogInScreen: UIViewController {
 
     }
 
-    func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.lightContent;
-    }
+//    func preferredStatusBarStyle() -> UIStatusBarStyle {
+//        return UIStatusBarStyle.lightContent;
+//    }
     //MARK:HideKeyboard
     func hideKeyboard()
     {
@@ -51,6 +51,8 @@ class LogInScreen: UIViewController {
     }else{
         statusLbl.isHidden = false
         statusLbl.text = "Password or UserName incorrect "
+        txtPassword.text = " "
+        txtUserName.text = " "
         }
     }
     
