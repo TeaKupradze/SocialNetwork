@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD10E71B208A2013000E32FA /* GallaryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10E71A208A2013000E32FA /* GallaryScreen.swift */; };
 		BD30603C2084A99200581489 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30603B2084A99200581489 /* HomeScreen.swift */; };
 		BD63D3D020849E3600675C3B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDAAAEA420849DF900362BF1 /* Info.plist */; };
 		BDAAAE732084866900362BF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAAAE722084866900362BF1 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD10E71A208A2013000E32FA /* GallaryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryScreen.swift; sourceTree = "<group>"; };
 		BD30603B2084A99200581489 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		BDAAAE6F2084866900362BF1 /* SocialNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDAAAE722084866900362BF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +42,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD10E719208A1F92000E32FA /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BD30603B2084A99200581489 /* HomeScreen.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
 		BDAAAE662084866900362BF1 = {
 			isa = PBXGroup;
 			children = (
@@ -91,7 +101,8 @@
 			children = (
 				BDAAAE9B2084937100362BF1 /* LogInScreen */,
 				BDAAAEA020849D1F00362BF1 /* RegistrationScreen */,
-				BD30603B2084A99200581489 /* HomeScreen.swift */,
+				BD10E719208A1F92000E32FA /* HomeScreen */,
+				BD10E71A208A2013000E32FA /* GallaryScreen.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -202,6 +213,7 @@
 				BD30603C2084A99200581489 /* HomeScreen.swift in Sources */,
 				BDAAAE9F20849D1900362BF1 /* RegistrationScreen.swift in Sources */,
 				BDAAAE732084866900362BF1 /* AppDelegate.swift in Sources */,
+				BD10E71B208A2013000E32FA /* GallaryScreen.swift in Sources */,
 				BDAAAE9D20849D0200362BF1 /* LogInScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

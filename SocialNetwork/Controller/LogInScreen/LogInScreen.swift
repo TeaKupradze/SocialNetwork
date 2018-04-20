@@ -51,8 +51,6 @@ class LogInScreen: UIViewController {
     }else{
         statusLbl.isHidden = false
         statusLbl.text = "Password or UserName incorrect "
-        txtPassword.text = " "
-        txtUserName.text = " "
         }
     }
     

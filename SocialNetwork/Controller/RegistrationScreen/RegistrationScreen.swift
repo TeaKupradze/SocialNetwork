@@ -14,7 +14,6 @@ class RegistrationScreen: UIViewController {
     @IBOutlet weak var textPassword: UITextField!
     @IBOutlet weak var statusLbl: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var constraintContentHeight: NSLayoutConstraint!
     @IBOutlet weak var contentView: UIView!
     
     var activeField: UITextField?
@@ -72,8 +71,9 @@ class RegistrationScreen: UIViewController {
         navigationController?.popToRootViewController(animated: true)
     }
     
-    @IBAction func backButtonClickd(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+   
+    @IBAction func signInButtonClickd(_ sender: UIButton) {
+         self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -108,12 +108,7 @@ extension RegistrationScreen {
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        UIView.animate(withDuration: 0.3) {
-            self.constraintContentHeight.constant -= self.keyboardHeight
-
-            self.scrollView.contentOffset = self.lastOffset
-        }
-
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         keyboardHeight = nil
     }
 }
