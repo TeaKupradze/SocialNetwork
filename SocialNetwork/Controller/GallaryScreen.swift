@@ -16,6 +16,7 @@ class GallaryCell: UITableViewCell {
     @IBOutlet weak var countPhotoLbl: UILabel!
     
 }
+
 //MARK:GallaryScreen
 class GallaryScreen: UIViewController {
     
@@ -29,14 +30,13 @@ class GallaryScreen: UIViewController {
         self.tableView.dataSource = self
         
     }
-
+    
     //MAR: IBAction
     @IBAction func menuButtonClickd(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
-    
-    
 }
+
 //MARK:UITableViewDelegate,UITableViewDataSource
 extension GallaryScreen : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,7 +53,4 @@ extension GallaryScreen : UITableViewDelegate,UITableViewDataSource {
         return cell
         
     }
-    
-    
-    
 }
