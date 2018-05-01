@@ -8,24 +8,31 @@
 
 import UIKit
 
-class RegistrationScreen: UIViewController {
+class RegistrationScreen: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     //MARk:IBOutlet
     @IBOutlet weak var textuserName: UITextField!
     @IBOutlet weak var textPassword: UITextField!
+    @IBOutlet weak var textEmail: UITextField!
     @IBOutlet weak var statusLbl: UILabel!
+    @IBOutlet weak var uploaImagedBtn: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var avatarImageView: UIImageView!
     
     var activeField: UITextField?
     var lastOffset: CGPoint!
     var keyboardHeight: CGFloat!
+    let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         statusLbl.isHidden = true
-        
+        avatarImageView.image = UIImage(named: "avatarHolder")
         textuserName.delegate = self
         textPassword.delegate = self
+        textEmail.delegate = self
+        
+        imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
         // Observe keyboard change
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -52,17 +59,34 @@ class RegistrationScreen: UIViewController {
     }
     
     //MARK:SaveData
-    func saveData(userName : String , password : String){
+    func saveData(userName : String , password : String , email : String , avatar : UIImageView){
         let userName = textuserName.text
         let password = textPassword.text
+        let email = textEmail.text
+        let avatar = UIImageJPEGRepresentation (avatarImageView.image!, 0.8)
         UserDefaults.standard.set(userName, forKey: "userName")
         UserDefaults.standard.set(password, forKey: "password")
+        UserDefaults.standard.set(email, forKey: "email")
+        UserDefaults.standard.set(avatar, forKey: "avatar")
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            avatarImageView.contentMode = .scaleAspectFit
+            avatarImageView.image = pickedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
     //MARK:IBAction
     @IBAction func registerButtonClickd(_ sender: Any) {
-        if ((textuserName.text?.count)! > 0 && (textPassword.text?.count)! > 0 ){
-            saveData(userName: textuserName.text!, password: textPassword.text!)
+        if ((textuserName.text?.count)! > 0 && (textPassword.text?.count)! > 0 &&  (textEmail.text?.count)! > 0 ){
+            saveData(userName: textuserName.text!, password: textPassword.text!, email: textEmail.text!, avatar: avatarImageView)
             statusLbl.isHidden = false
             statusLbl.text = "Register Sucssesful"
         } else{
@@ -75,6 +99,14 @@ class RegistrationScreen: UIViewController {
     @IBAction func signInButtonClickd(_ sender: UIButton) {
          self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func uploadButtonClickd(_ sender: Any) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+        
+    }
+    
 }
 
 // MARK: UITextFieldDelegate

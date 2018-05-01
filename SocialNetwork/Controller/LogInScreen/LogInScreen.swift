@@ -10,7 +10,7 @@ import UIKit
 
 class LogInScreen: UIViewController {
     //MARK:IBOutlet
-    @IBOutlet weak var txtUserName: UITextField!
+    @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var statusLbl: UILabel!
     
@@ -46,7 +46,7 @@ class LogInScreen: UIViewController {
     
     //MARK:IBAction
     @IBAction func logInButtonClickd(_ sender: UIButton) {
-    if  txtUserName.text == (UserDefaults.standard.object(forKey: "userName") as? String) && (txtPassword.text == UserDefaults.standard.object(forKey: "password")as? String){
+    if  txtEmail.text == (UserDefaults.standard.object(forKey: "email") as? String) && (txtPassword.text == UserDefaults.standard.object(forKey: "password")as? String){
         goToHomeScreen()
     }else{
         statusLbl.isHidden = false

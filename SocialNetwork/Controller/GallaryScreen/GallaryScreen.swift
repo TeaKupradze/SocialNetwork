@@ -17,7 +17,7 @@ class GallaryCell: UITableViewCell {
     
 }
 
-//MARK:GallaryScreen
+    //MARK:GallaryScreen
 class GallaryScreen: UIViewController {
     
     //MARK: IBOutlet
