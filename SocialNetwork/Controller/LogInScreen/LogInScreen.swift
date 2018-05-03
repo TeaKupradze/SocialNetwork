@@ -10,9 +10,9 @@ import UIKit
 
 class LogInScreen: UIViewController {
     //MARK:IBOutlet
-    @IBOutlet weak var txtEmail: UITextField!
-    @IBOutlet weak var txtPassword: UITextField!
-    @IBOutlet weak var statusLbl: UILabel!
+    @IBOutlet weak fileprivate var txtEmail: UITextField!
+    @IBOutlet weak fileprivate var txtPassword: UITextField!
+    @IBOutlet weak fileprivate var statusLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +44,14 @@ class LogInScreen: UIViewController {
         navigationController?.pushViewController(vc!, animated: true)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // releasing the focus on the textField and hiding the keyboard
+        txtEmail.resignFirstResponder()
+       // self.tapOnSignIn()
+        return true
+    }
+    
+    
     //MARK:IBAction
     @IBAction func logInButtonClickd(_ sender: UIButton) {
     if  txtEmail.text == (UserDefaults.standard.object(forKey: "email") as? String) && (txtPassword.text == UserDefaults.standard.object(forKey: "password")as? String){
@@ -60,4 +68,6 @@ class LogInScreen: UIViewController {
         
     }
     
+
 }
+

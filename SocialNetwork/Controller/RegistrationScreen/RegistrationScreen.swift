@@ -10,14 +10,14 @@ import UIKit
 
 class RegistrationScreen: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     //MARk:IBOutlet
-    @IBOutlet weak var textuserName: UITextField!
-    @IBOutlet weak var textPassword: UITextField!
-    @IBOutlet weak var textEmail: UITextField!
-    @IBOutlet weak var statusLbl: UILabel!
-    @IBOutlet weak var uploaImagedBtn: UIButton!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak fileprivate var textuserName: UITextField!
+    @IBOutlet weak fileprivate var textPassword: UITextField!
+    @IBOutlet weak fileprivate var textEmail: UITextField!
+    @IBOutlet weak fileprivate var statusLbl: UILabel!
+    @IBOutlet weak fileprivate var uploaImagedBtn: UIButton!
+    @IBOutlet weak fileprivate var scrollView: UIScrollView!
+    @IBOutlet weak fileprivate var contentView: UIView!
+    @IBOutlet weak fileprivate var avatarImageView: UIImageView!
     
     var activeField: UITextField?
     var lastOffset: CGPoint!
@@ -68,7 +68,7 @@ class RegistrationScreen: UIViewController,UIImagePickerControllerDelegate,UINav
         UserDefaults.standard.set(password, forKey: "password")
         UserDefaults.standard.set(email, forKey: "email")
         UserDefaults.standard.set(avatar, forKey: "avatar")
-        
+    
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

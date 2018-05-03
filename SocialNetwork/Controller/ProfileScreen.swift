@@ -24,4 +24,9 @@ class ProfileScreen: UIViewController {
         navigationController?.popViewController(animated:true)
     }
     
+    @IBAction func logOutClickd(_ sender: UIButton) {
+     let appdelegate = UIApplication.shared.delegate as! AppDelegate
+        appdelegate.logOutUser()
+    }
+    
 }

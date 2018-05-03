@@ -15,10 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let isLogIn = UserDefaults.standard.object(forKey: "email")
+        if ((isLogIn) != nil){
+            let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let homePage = mainStoryBoard.instantiateViewController(withIdentifier: "HomeScreen") as! HomeScreen
+            let navigationController = UINavigationController(rootViewController: homePage)
+            navigationController.isNavigationBarHidden = true
+            window!.rootViewController = navigationController
+            window!.makeKeyAndVisible()
+        }
         // Override point for customization after application launch.
         return true
     }
-
+    
+    func logOutUser(){
+        let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let logInPage = mainStoryBoard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+        window!.rootViewController = logInPage
+        window!.makeKeyAndVisible()
+        
+    }
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
