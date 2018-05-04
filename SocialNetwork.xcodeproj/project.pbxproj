@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		BD10E71B208A2013000E32FA /* GallaryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10E71A208A2013000E32FA /* GallaryScreen.swift */; };
-		BD10F5BA20985CE400FE84C3 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10F5B920985CE400FE84C3 /* ProfileScreen.swift */; };
 		BD10F5BC20986B9A00FE84C3 /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10F5BB20986B9A00FE84C3 /* UserObject.swift */; };
+		BD124B3B209C52CB000C89EE /* FriendsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD124B3A209C52CB000C89EE /* FriendsScreen.swift */; };
 		BD30603C2084A99200581489 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30603B2084A99200581489 /* HomeScreen.swift */; };
 		BD63D3D020849E3600675C3B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDAAAEA420849DF900362BF1 /* Info.plist */; };
+		BD784C3A209C553900CA3306 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD784C39209C553900CA3306 /* ProfileScreen.swift */; };
+		BD784C3C209C820300CA3306 /* DetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD784C3B209C820300CA3306 /* DetailScreen.swift */; };
 		BDAAAE732084866900362BF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAAAE722084866900362BF1 /* AppDelegate.swift */; };
 		BDAAAE782084866900362BF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDAAAE762084866900362BF1 /* Main.storyboard */; };
 		BDAAAE7A2084866B00362BF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDAAAE792084866B00362BF1 /* Assets.xcassets */; };
@@ -22,9 +24,11 @@
 
 /* Begin PBXFileReference section */
 		BD10E71A208A2013000E32FA /* GallaryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryScreen.swift; sourceTree = "<group>"; };
-		BD10F5B920985CE400FE84C3 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileScreen.swift; path = SocialNetwork/Controller/ProfileScreen.swift; sourceTree = SOURCE_ROOT; };
 		BD10F5BB20986B9A00FE84C3 /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
+		BD124B3A209C52CB000C89EE /* FriendsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsScreen.swift; sourceTree = "<group>"; };
 		BD30603B2084A99200581489 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		BD784C39209C553900CA3306 /* ProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		BD784C3B209C820300CA3306 /* DetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; };
 		BDAAAE6F2084866900362BF1 /* SocialNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDAAAE722084866900362BF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDAAAE772084866900362BF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,6 +64,14 @@
 				BD10E71A208A2013000E32FA /* GallaryScreen.swift */,
 			);
 			path = GallaryScreen;
+			sourceTree = "<group>";
+		};
+		BD124B39209C529F000C89EE /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BD784C39209C553900CA3306 /* ProfileScreen.swift */,
+			);
+			path = ProfileScreen;
 			sourceTree = "<group>";
 		};
 		BDAAAE662084866900362BF1 = {
@@ -111,11 +123,13 @@
 		BDAAAE9A2084936300362BF1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BD10F5B920985CE400FE84C3 /* ProfileScreen.swift */,
+				BD124B39209C529F000C89EE /* ProfileScreen */,
 				BDAAAE9B2084937100362BF1 /* LogInScreen */,
 				BDAAAEA020849D1F00362BF1 /* RegistrationScreen */,
 				BD10E719208A1F92000E32FA /* HomeScreen */,
 				BD10F5B820985CAA00FE84C3 /* GallaryScreen */,
+				BD124B3A209C52CB000C89EE /* FriendsScreen.swift */,
+				BD784C3B209C820300CA3306 /* DetailScreen.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -225,12 +239,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD30603C2084A99200581489 /* HomeScreen.swift in Sources */,
-				BD10F5BA20985CE400FE84C3 /* ProfileScreen.swift in Sources */,
+				BD124B3B209C52CB000C89EE /* FriendsScreen.swift in Sources */,
 				BDAAAE9F20849D1900362BF1 /* RegistrationScreen.swift in Sources */,
 				BDAAAE732084866900362BF1 /* AppDelegate.swift in Sources */,
 				BD10E71B208A2013000E32FA /* GallaryScreen.swift in Sources */,
 				BDAAAE9D20849D0200362BF1 /* LogInScreen.swift in Sources */,
 				BD10F5BC20986B9A00FE84C3 /* UserObject.swift in Sources */,
+				BD784C3A209C553900CA3306 /* ProfileScreen.swift in Sources */,
+				BD784C3C209C820300CA3306 /* DetailScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

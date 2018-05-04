@@ -31,6 +31,10 @@ class GallaryScreen: UIViewController {
         
     }
     
+    func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent;
+    }
+    
     //MAR: IBAction
     @IBAction func menuButtonClickd(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)

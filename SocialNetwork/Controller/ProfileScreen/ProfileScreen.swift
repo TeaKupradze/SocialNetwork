@@ -19,6 +19,7 @@ class ProfileScreen: UIViewController {
         profileImageView.image = UIImage(data: (UserDefaults.standard.object(forKey: "avatar") as? Data)!)
     
     }
+    
 
     @IBAction func goToHomeScreen(_ sender: UIButton) {
         navigationController?.popViewController(animated:true)

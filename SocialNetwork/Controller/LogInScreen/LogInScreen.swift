@@ -21,9 +21,10 @@ class LogInScreen: UIViewController {
 
     }
 
-//    func preferredStatusBarStyle() -> UIStatusBarStyle {
-//        return UIStatusBarStyle.lightContent;
-//    }
+    func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent;
+    }
+    
     //MARK:HideKeyboard
     func hideKeyboard()
     {
@@ -43,14 +44,7 @@ class LogInScreen: UIViewController {
         let vc = storyboard?.instantiateViewController(withIdentifier: "HomeScreen")
         navigationController?.pushViewController(vc!, animated: true)
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // releasing the focus on the textField and hiding the keyboard
-        txtEmail.resignFirstResponder()
-       // self.tapOnSignIn()
-        return true
-    }
-    
+
     
     //MARK:IBAction
     @IBAction func logInButtonClickd(_ sender: UIButton) {

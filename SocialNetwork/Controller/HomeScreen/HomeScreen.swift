@@ -17,8 +17,12 @@ class HomeScreen: UIViewController {
         super.viewDidLoad()
         userNameLbl.text = UserDefaults.standard.object(forKey: "userName") as? String
         profileImageView.image = UIImage(data: (UserDefaults.standard.object(forKey: "avatar") as? Data)!)
+        
     }
-
+    
+    func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent;
+    }
     
     @IBAction func galleryButtonClickd(_ sender: UIButton) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "GallaryScreen")
@@ -30,4 +34,11 @@ class HomeScreen: UIViewController {
         let vc = storyboard?.instantiateViewController(withIdentifier: "ProfileScreen")
         self.navigationController?.pushViewController(vc!, animated: true)
     }
+    
+    @IBAction func friendsButtonClickd(_ sender: UIButton) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "FriendsScreen")
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    
 }
