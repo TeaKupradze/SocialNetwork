@@ -687,6 +687,10 @@
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="f6U-yp-wSf" appends="YES" id="2gH-mI-fRI"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdf-AW-wQx">
                                 <rect key="frame" x="308" y="20" width="64" height="47"/>
@@ -703,10 +707,17 @@
                         <viewLayoutGuide key="safeArea" id="Eti-l6-19x"/>
                     </view>
                     <connections>
+                        <outlet property="contentView" destination="FJC-nZ-dje" id="VXL-Nh-5d9"/>
                         <outlet property="imageView" destination="DR8-OV-wr1" id="Q9V-4Q-2ai"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIX-cA-Hz1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="f6U-yp-wSf">
+                    <connections>
+                        <action selector="tapGesture:" destination="jOv-9Y-Uk8" id="8zv-Nx-raB"/>
+                        <outlet property="delegate" destination="FJC-nZ-dje" id="xiU-AP-3Pu"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1029.5999999999999" y="573.46326836581716"/>
         </scene>
