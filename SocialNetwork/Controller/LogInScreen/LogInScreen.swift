@@ -48,12 +48,24 @@ class LogInScreen: UIViewController {
     
     //MARK:IBAction
     @IBAction func logInButtonClickd(_ sender: UIButton) {
-    if  txtEmail.text == (UserDefaults.standard.object(forKey: "email") as? String) && (txtPassword.text == UserDefaults.standard.object(forKey: "password")as? String){
-        goToHomeScreen()
-    }else{
-        statusLbl.isHidden = false
-        statusLbl.text = "Password or UserName incorrect "
+        if let userName = txtEmail.text, let pass = txtPassword.text {
+            if !userName.isEmpty && !pass.isEmpty {
+                UserObject.authorize(with: userName, pass: pass) { [weak self] (user) in
+                    if user != nil {
+                        UserObject.cuurent = user
+                        self?.goToHomeScreen()
+                    } else {
+                        print("Error while logging user")
+                    }
+                }
+            }
         }
+//    if  txtEmail.text == (UserDefaults.standard.object(forKey: "email") as? String) && (txtPassword.text == UserDefaults.standard.object(forKey: "password")as? String){
+//        goToHomeScreen()
+//    }else{
+//        statusLbl.isHidden = false
+//        statusLbl.text = "Password or UserName incorrect "
+//        }
     }
     
     @IBAction func registerButtonClickd(_ sender: UIButton) {

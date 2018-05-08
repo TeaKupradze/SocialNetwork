@@ -85,14 +85,25 @@ class RegistrationScreen: UIViewController,UIImagePickerControllerDelegate,UINav
     
     //MARK:IBAction
     @IBAction func registerButtonClickd(_ sender: Any) {
-        if ((textuserName.text?.count)! > 0 && (textPassword.text?.count)! > 0 &&  (textEmail.text?.count)! > 0 ){
-            saveData(userName: textuserName.text!, password: textPassword.text!, email: textEmail.text!, avatar: avatarImageView)
-            statusLbl.isHidden = false
-            statusLbl.text = "Register Sucssesful"
-        } else{
-            statusLbl.text = "Error"
+        if let userName = textuserName.text, let password = textPassword.text {
+            if !userName.isEmpty && !password.isEmpty {
+                UserObject.register(with: userName, pass: password) { [weak self] (success) in
+                    if success {
+                        self?.navigationController?.popViewController(animated: true)
+                    } else {
+                        print("Error while register user")
+                    }
+                }
+            }
         }
-        navigationController?.popToRootViewController(animated: true)
+//        if ((textuserName.text?.count)! > 0 && (textPassword.text?.count)! > 0 &&  (textEmail.text?.count)! > 0 ){
+//            saveData(userName: textuserName.text!, password: textPassword.text!, email: textEmail.text!, avatar: avatarImageView)
+//            statusLbl.isHidden = false
+//            statusLbl.text = "Register Sucssesful"
+//        } else{
+//            statusLbl.text = "Error"
+//        }
+//        navigationController?.popToRootViewController(animated: true)
     }
     
    

@@ -36,17 +36,17 @@ class FriendsScreen: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        loadFirstData()
+       // loadFirstData()
 
     }
     
-    func loadFirstData(){
-        for i in 0..<2 {
-            let object = UserObject()
-            object.profileImage = UIImage(named: "test_\(Int(arc4random_uniform(2)))")
-            self.dataSource.append(object)
-        }
-    }
+//    func loadFirstData(){
+//        for i in 0..<2 {
+//            let object = UserObject()
+//            object.profileImage = UIImage(named: "test_\(Int(arc4random_uniform(2)))")
+//            self.dataSource.append(object)
+//        }
+//    }
     
 @IBAction func backButtonClickd(_ sender: UIButton) {
         navigationController?.popViewController(animated:true)
