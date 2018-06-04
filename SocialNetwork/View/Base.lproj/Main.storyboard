@@ -853,31 +853,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ryr-hi-3ay">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="573"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backBg" translatesAutoresizingMaskIntoConstraints="NO" id="MuQ-PZ-bh6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fE0-9S-pfA">
-                                <rect key="frame" x="155" y="581" width="64" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="cameraIcon"/>
-                                <connections>
-                                    <action selector="tackePhotoButton:" destination="W9d-as-O00" eventType="touchUpInside" id="D5F-Sc-C2S"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ryr-hi-3ay">
+                                <rect key="frame" x="0.0" y="30" width="375" height="402"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="402" id="HEw-xu-1dN"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIP-F4-hOz">
-                                <rect key="frame" x="16" y="581" width="64" height="64"/>
+                                <rect key="frame" x="15" y="591" width="62" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="gallery"/>
                                 <connections>
                                     <action selector="gallaryButton:" destination="W9d-as-O00" eventType="touchUpInside" id="iw9-EM-wAt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fE0-9S-pfA">
+                                <rect key="frame" x="155.5" y="585" width="64" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="cameraIcon"/>
+                                <connections>
+                                    <action selector="tackePhotoButton:" destination="W9d-as-O00" eventType="touchUpInside" id="D5F-Sc-C2S"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YYP-J0-EdC">
+                                <rect key="frame" x="0.0" y="458" width="375" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="xEo-IQ-fXk"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hW4-zc-mZo">
+                                    <size key="itemSize" width="145" height="127"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoIthem" id="L4s-Yc-9Ho" customClass="PhotoIthem" customModule="SocialNetwork" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="10.5" width="120" height="107"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="107"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gj9-0O-rQc">
+                                                    <rect key="frame" x="5" y="0.0" width="111" height="107"/>
+                                                    <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Gj9-0O-rQc" secondAttribute="trailing" constant="4" id="6LM-jr-dFt"/>
+                                            <constraint firstItem="Gj9-0O-rQc" firstAttribute="top" secondItem="L4s-Yc-9Ho" secondAttribute="top" id="9wE-Vt-uXm"/>
+                                            <constraint firstAttribute="bottom" secondItem="Gj9-0O-rQc" secondAttribute="bottom" id="FHq-eG-cxH"/>
+                                            <constraint firstItem="Gj9-0O-rQc" firstAttribute="leading" secondItem="L4s-Yc-9Ho" secondAttribute="leading" constant="5" id="yEO-i2-xkl"/>
+                                        </constraints>
+                                        <size key="customSize" width="120" height="107"/>
+                                        <connections>
+                                            <outlet property="filterImg" destination="Gj9-0O-rQc" id="nyo-e0-XE1"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ryr-hi-3ay" firstAttribute="trailing" secondItem="qLS-3b-RqY" secondAttribute="trailing" id="S8t-K5-Kgs"/>
+                            <constraint firstItem="YYP-J0-EdC" firstAttribute="trailing" secondItem="qLS-3b-RqY" secondAttribute="trailing" id="VIp-hZ-DOp"/>
+                            <constraint firstItem="MuQ-PZ-bh6" firstAttribute="leading" secondItem="qLS-3b-RqY" secondAttribute="leading" id="WB0-PK-UPg"/>
+                            <constraint firstItem="YYP-J0-EdC" firstAttribute="top" secondItem="ryr-hi-3ay" secondAttribute="bottom" constant="26" id="XEU-ng-VHc"/>
+                            <constraint firstItem="ryr-hi-3ay" firstAttribute="leading" secondItem="qLS-3b-RqY" secondAttribute="leading" id="eyc-Vu-1f8"/>
+                            <constraint firstItem="MuQ-PZ-bh6" firstAttribute="bottom" secondItem="qLS-3b-RqY" secondAttribute="bottom" id="fwt-yR-0a8"/>
+                            <constraint firstItem="MuQ-PZ-bh6" firstAttribute="top" secondItem="dWn-cc-7Jv" secondAttribute="top" id="hns-jc-kB8"/>
+                            <constraint firstItem="ryr-hi-3ay" firstAttribute="top" secondItem="dWn-cc-7Jv" secondAttribute="top" constant="30" id="htw-NG-V5l"/>
+                            <constraint firstItem="MuQ-PZ-bh6" firstAttribute="trailing" secondItem="qLS-3b-RqY" secondAttribute="trailing" id="qgF-oB-Sh1"/>
+                            <constraint firstItem="YYP-J0-EdC" firstAttribute="leading" secondItem="qLS-3b-RqY" secondAttribute="leading" id="xBC-OG-HaG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qLS-3b-RqY"/>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="YYP-J0-EdC" id="JLI-VU-aD0"/>
                         <outlet property="takeImg" destination="ryr-hi-3ay" id="C0U-nj-Frz"/>
                     </connections>
                 </viewController>

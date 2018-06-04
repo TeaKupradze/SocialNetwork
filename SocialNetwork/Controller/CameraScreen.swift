@@ -8,14 +8,27 @@
 
 import UIKit
 
-class CameraScreen: UIViewController, UINavigationControllerDelegate ,UIImagePickerControllerDelegate{
+class  PhotoIthem : UICollectionViewCell {
+    
+    @IBOutlet weak var filterImg: UIImageView!
+    
+}
+
+class CameraScreen: UIViewController,UINavigationControllerDelegate ,UIImagePickerControllerDelegate{
     
     @IBOutlet weak var takeImg: UIImageView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     
     var imagePicker: UIImagePickerController!
+    let filterNames = CIFilter.filterNames(inCategories: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
+        collectionView.delegate = self;
+        collectionView.dataSource = self;
         
         
     }
@@ -36,7 +49,17 @@ class CameraScreen: UIViewController, UINavigationControllerDelegate ,UIImagePic
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         imagePicker.dismiss(animated: true, completion: nil)
-        takeImg.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        takeImg.image = simpleBlurFilterExample(with: info[UIImagePickerControllerOriginalImage] as! UIImage)
+
+    }
+    
+    
+    @IBAction func tackePhotoButton(_ sender: UIButton) {
+        openCamera()
+    }
+    
+    @IBAction func gallaryButton(_ sender: Any) {
+        openGallary()
     }
     
     func simpleBlurFilterExample(with image: UIImage) -> UIImage {
@@ -52,12 +75,17 @@ class CameraScreen: UIViewController, UINavigationControllerDelegate ,UIImagePic
         let outputImage = blurFilter.outputImage!
         return UIImage(ciImage: outputImage)
     }
+}
+
+
+extension CameraScreen : UICollectionViewDataSource , UICollectionViewDelegate {
     
-    @IBAction func tackePhotoButton(_ sender: UIButton) {
-        openCamera()
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoIthem", for: indexPath) as! PhotoIthem
+        return cell
     }
     
-    @IBAction func gallaryButton(_ sender: Any) {
-        openGallary()
-    }
 }
