@@ -41,4 +41,11 @@ class HomeScreen: UIViewController {
     }
     
     
+    @IBAction func cameraButtonClickd(_ sender: UIButton) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CameraScreen")
+        self.navigationController?.pushViewController(vc!, animated: true)
+        
+        
+    }
+    
 }

@@ -11,6 +11,8 @@
 		BD10E71B208A2013000E32FA /* GallaryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10E71A208A2013000E32FA /* GallaryScreen.swift */; };
 		BD10F5BC20986B9A00FE84C3 /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10F5BB20986B9A00FE84C3 /* UserObject.swift */; };
 		BD124B3B209C52CB000C89EE /* FriendsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD124B3A209C52CB000C89EE /* FriendsScreen.swift */; };
+		BD13E61820C52F6100868C1C /* AuthorizeFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD13E61720C52F6100868C1C /* AuthorizeFacebook.swift */; };
+		BD13E61F20C5441F00868C1C /* CameraScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD13E61D20C543DB00868C1C /* CameraScreen.swift */; };
 		BD30603C2084A99200581489 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD30603B2084A99200581489 /* HomeScreen.swift */; };
 		BD42A7E320A0777C00EB51DF /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42A7E220A0777C00EB51DF /* UserService.swift */; };
 		BD63D3D020849E3600675C3B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDAAAEA420849DF900362BF1 /* Info.plist */; };
@@ -31,6 +33,8 @@
 		BD10E71A208A2013000E32FA /* GallaryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryScreen.swift; sourceTree = "<group>"; };
 		BD10F5BB20986B9A00FE84C3 /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
 		BD124B3A209C52CB000C89EE /* FriendsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsScreen.swift; sourceTree = "<group>"; };
+		BD13E61720C52F6100868C1C /* AuthorizeFacebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeFacebook.swift; sourceTree = "<group>"; };
+		BD13E61D20C543DB00868C1C /* CameraScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScreen.swift; sourceTree = "<group>"; };
 		BD30603B2084A99200581489 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		BD42A7E220A0777C00EB51DF /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		BD784C39209C553900CA3306 /* ProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				BD42A7E220A0777C00EB51DF /* UserService.swift */,
+				BD13E61720C52F6100868C1C /* AuthorizeFacebook.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 				BD10F5B820985CAA00FE84C3 /* GallaryScreen */,
 				BD124B3A209C52CB000C89EE /* FriendsScreen.swift */,
 				BD784C3B209C820300CA3306 /* DetailScreen.swift */,
+				BD13E61D20C543DB00868C1C /* CameraScreen.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -279,11 +285,17 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SocialNetwork/Pods-SocialNetwork-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,9 +334,11 @@
 				BDAAAE732084866900362BF1 /* AppDelegate.swift in Sources */,
 				BD10E71B208A2013000E32FA /* GallaryScreen.swift in Sources */,
 				BDAAAE9D20849D0200362BF1 /* LogInScreen.swift in Sources */,
+				BD13E61820C52F6100868C1C /* AuthorizeFacebook.swift in Sources */,
 				BD42A7E320A0777C00EB51DF /* UserService.swift in Sources */,
 				BD10F5BC20986B9A00FE84C3 /* UserObject.swift in Sources */,
 				BD784C3A209C553900CA3306 /* ProfileScreen.swift in Sources */,
+				BD13E61F20C5441F00868C1C /* CameraScreen.swift in Sources */,
 				BD784C3C209C820300CA3306 /* DetailScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -85,9 +85,9 @@ class RegistrationScreen: UIViewController,UIImagePickerControllerDelegate,UINav
     
     //MARK:IBAction
     @IBAction func registerButtonClickd(_ sender: Any) {
-        if let userName = textuserName.text, let password = textPassword.text {
+        if let userName = textuserName.text, let password = textPassword.text , let email = textEmail.text {
             if !userName.isEmpty && !password.isEmpty {
-                UserObject.register(with: userName, pass: password) { [weak self] (success) in
+                UserObject.register(with: userName, pass: password, email: email) { [weak self] (success) in
                     if success {
                         self?.navigationController?.popViewController(animated: true)
                     } else {

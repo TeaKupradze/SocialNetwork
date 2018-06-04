@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import  Parse
+import Parse
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         parseSDKInit ()
+        PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 //        let isLogIn = UserDefaults.standard.object(forKey: "email")
 //        if ((isLogIn) != nil){
 //            let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -30,6 +33,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        return handled
+    }
+    
+//-(BOOL)application:(UIApplication *)application
+//    openURL:(NSURL *)url
+//    sourceApplication:(NSString *)sourceApplication
+//    annotation:(id)annotation {
+//
+//    BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
+//    openURL:url
+//    sourceApplication:sourceApplication
+//    annotation:annotation
+//    ];
+//    // Add any custom logic here.
+//    return handled;
+//    }
+//
+
+ 
     func logOutUser(){
         let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let logInPage = mainStoryBoard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
@@ -40,9 +64,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func parseSDKInit () {
         let configuration = ParseClientConfiguration {
-            $0.applicationId = "pghM7FgleV4h5mbLwUnPc0xZVSBKzQVggfkPONXL"
-            $0.clientKey = "rZ0TYKhKShFUtQsAvz76fob8KdVDYgLzNVPfskOX"
-            $0.server = "https://pg-app-yad96fynz3243ycc4vagvqd1fug58z.scalabl.cloud/1/"
+            $0.applicationId = "2u56E2tGkeEKZkNKC789eaBpVKrMM7mhmbPAoMTk"
+            $0.clientKey = "hATve113Ke0ri96xw1FFbU8dmiPoMfMrAVIKTkmK"
+            $0.server = "https://pg-app-8kd7bohhg60jeky1iwwcjqh8xa0i38.scalabl.cloud/1/"
         }
         Parse.initialize(with: configuration)
     }
